@@ -2,14 +2,14 @@
 include('db.php');
 include('function.php');
  
-if(isset($_POST["member_id"]))
+if(isset($_POST["t_id"]))
 {
     $statement = $connection->prepare(
-        "DELETE FROM member WHERE id = :id"
+        "DELETE FROM trainees WHERE t_id = :t_id"
     );
     $result = $statement->execute(
  
-        array(':id' =>   $_POST["member_id"])
+        array('t_:id' =>   $_POST["t_id"])
          
         );
 }
