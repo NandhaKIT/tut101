@@ -3,7 +3,7 @@ include('db.php');
 include('function.php');
 $query = '';
 $output = array();
-$query .= "SELECT * FROM member ";
+$query .= "SELECT * FROM tbl_trainees";
 if(isset($_POST["search"]["value"]))
 {
     $query .= 'WHERE name LIKE "%'.$_POST["search"]["value"].'%" ';
@@ -32,12 +32,16 @@ foreach($result as $row)
 {
     $sub_array = array();
      
-    $sub_array[] = $row["id"];
-    $sub_array[] = $row["name"];
-    $sub_array[] = $row["email"];
-    $sub_array[] = $row["phone"];
-    $sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-primary btn-sm update"><i class="glyphicon glyphicon-pencil"> </i>Edit</button></button>';
-    $sub_array[] = '<button type="button" name="delete" id="'.$row["id"].'" class="btn btn-danger btn-sm delete">Delete</button>';
+    $sub_array[] = $row["t_kid"];
+    $sub_array[] = $row["t_name"];
+    $sub_array[] = $row["t_email"];
+    $sub_array[] = $row["t_pass"];
+    $sub_array[] = $row["t_status"];
+    $sub_array[] = $row["t_tech"];
+    $sub_array[] = $row["t_avail"];
+   
+    $sub_array[] = '<button type="button" name="update" t_id="'.$row["t_id"].'" class="btn btn-primary btn-sm update"><i class="glyphicon glyphicon-pencil"> </i>Edit</button></button>';
+    $sub_array[] = '<button type="button" name="delete" t_id="'.$row["t_id"].'" class="btn btn-danger btn-sm delete">Delete</button>';
     $data[] = $sub_array;
 }
 $output = array(
