@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.3.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-dw7JkvSY887ST9P6l07YXWD9wHo/t/4udcC8ZXIl0QZNeb7vum2AzYLoBF+4nT0O" crossorigin="anonymous">
+
 </head>
 <body>
 <div class="container">
@@ -59,7 +61,6 @@
                     <input type="text" name="t_status" id="phone" class="form-control" />
                     <br /> 
                     <label>Enter Technology</label>
-                    <input type="text" name="t_tech" id="phone" class="form-control" />
                     <select class="form-multi-select" id="ms1" multiple data-coreui-search="true">
                       <option value="0">Angular</option>
                       <option value="1">Bootstrap</option>
@@ -191,6 +192,55 @@ $(document).ready(function(){
      
 });
 
-</script>             
+const myMultiSelect = document.getElementById('multiSelect')
+
+if (myMultiSelect) {
+  new coreui.MultiSelect(myMultiSelect, {
+    name: 'multiSelect',
+    options: [
+      {
+        value: 0,
+        text: 'Angular'
+      },
+      {
+        value: 1,
+        text: 'Bootstrap',
+        selected: true
+      },
+      {
+        value: 2,
+        text: 'React.js',
+        selected: true
+      },
+      {
+        value: 3,
+        text: 'Vue.js'
+      },
+      {
+        label: 'backend',
+        options: [
+          {
+            value: 4,
+            text: 'Django'
+          },
+          {
+            value: 5,
+            text: 'Laravel'
+          },
+          {
+            value: 6,
+            text: 'Node.js',
+            selected: true
+          }
+        ]
+      }
+    ],
+    search: true
+  })
+}
+</script>      
+<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.3.0/dist/js/coreui.bundle.min.js" integrity="sha384-4PYgpInDJBnJOokPuV+iHGQesWl3gGqociope/kxBvo2rVBQAdBVyU0Kr3jbeT5K" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@5.3.0/dist/js/coreui.min.js" integrity="sha384-ECMaK2vgKKMY+JXDjN6ed9M9HgOKk26/4U/V+MULv+SAqTNUAjB+KKvDCY7KGgZ4" crossorigin="anonymous"></script>
 </body>
 </html>
