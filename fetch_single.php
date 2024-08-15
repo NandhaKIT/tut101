@@ -5,7 +5,7 @@ if(isset($_POST["t_id"]))
 {
     $output = array();
     $statement = $connection->prepare(
-        "SELECT * FROM tbl_trainees WHERE id = '".$_POST["t_id"]."' LIMIT 1"
+        "SELECT * FROM trainees WHERE t_id = '".$_POST["t_id"]."' LIMIT 1"
     );
     $statement->execute();
     $result = $statement->fetchAll();

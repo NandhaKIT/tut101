@@ -1,3 +1,3 @@
 <?php
-$connection = new PDO( 'mysql:host=localhost;dbname=projectdb', 'root', '' );
+$connection = new PDO( 'mysql:host=localhost;dbname=tut101', 'root', '' );
 ?>

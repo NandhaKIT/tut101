@@ -3,7 +3,7 @@ include('db.php');
 include('function.php');
 $query = '';
 $output = array();
-$query .= "SELECT * FROM tbl_trainees";
+$query .= "SELECT * FROM trainees";
 if(isset($_POST["search"]["value"]))
 {
     $query .= 'WHERE name LIKE "%'.$_POST["search"]["value"].'%" ';
