@@ -46,22 +46,22 @@
             <form method="post" id="member_form" enctype="multipart/form-data">
                 <div class="modal-body">
                     <label>Enter KIT ID</label>
-                    <input type="text" name="t_kid" id="name" class="form-control" />
+                    <input type="text" name="t_kid" id="t_kid" class="form-control" />
                     <br />
                     <label>Enter Name</label>
-                    <input type="text" name="t_name" id="email" class="form-control" />
+                    <input type="text" name="t_name" id="t_name" class="form-control" />
                     <br /> 
                     <label>Enter Email</label>
-                    <input type="email" name="t_email" id="phone" class="form-control" />
+                    <input type="email" name="t_email" id="t_email" class="form-control" />
                     <br /> 
                     <label>Enter Password</label>
-                    <input type="password" name="t_pass" id="phone" class="form-control" />
+                    <input type="password" name="t_pass" id="t_pass" class="form-control" />
                     <br /> 
                     <label>Enter Status</label>
-                    <input type="text" name="t_status" id="phone" class="form-control" />
+                    <input type="text" name="t_status" id="t_status" class="form-control" />
                     <br /> 
                     <label>Enter Technology</label>
-                    <select class="form-multi-select" id="ms1" multiple data-coreui-search="true">
+                    <select class="form-multi-select" name="t_tech" id="ms1 t_tech" multiple data-coreui-search="true">
                       <option value="0">Angular</option>
                       <option value="1">Bootstrap</option>
                       <option value="2">React.js</option>
@@ -73,7 +73,7 @@
                     </select>
                     <br /> 
                     <label>Enter Time Available</label>
-                    <input type="text" name="t_avail" id="phone" class="form-control" />
+                    <input type="text" name="t_avail" id="t_avail" class="form-control" />
                     <br /> 
                 </div>
                 <div class="modal-footer">
@@ -120,11 +120,15 @@ $(document).ready(function(){
  
     $(document).on('submit', '#member_form', function(event){
         event.preventDefault();
-        var id = $('#id').val();
-        var name = $('#name').val();
-        var email = $('#email').val();
+        var kid = $('#t_kid').val();
+        var name = $('#t_name').val();
+        var email = $('#t_email').val();
+        var pass = $('#t_pass').val();
+        var status = $('#t_status').val();
+        var tech = $('#t_tech').val();
+        var avail = $('#t_avail').val();
          
-        if(name != '' && email != '')
+        if(kid != '' && name != '' && email != '' && pass != '' && status != '' && tech != '' && avail != '')
         {
             $.ajax({
                 url:"insertupdated.php",
@@ -142,12 +146,12 @@ $(document).ready(function(){
         }
         else
         {
-            alert("Name, email Fields are Required");
+            alert("All Fields are Required");
         }
     });
      
     $(document).on('click', '.update', function(){
-        var member_id = $(this).attr("id");
+        var member_id = $(this).attr("kid");
         $.ajax({
             url:"fetch_single.php",
             method:"POST",
@@ -156,10 +160,13 @@ $(document).ready(function(){
             success:function(data)
             {
                 $('#userModal').modal('show');
-                $('#id').val(data.id);
-                $('#name').val(data.name);
-                $('#email').val(data.email);
-                $('#phone').val(data.phone);
+                $('#t_id').val(data.kid);
+                $('#t_name').val(data.name);
+                $('#t_email').val(data.email);
+                $('#t_pass').val(data.pass);
+                $('#t_status').val(data.status);
+                $('#t_tech').val(data.tech);
+                $('#t_avail').val(data.avail);
                 $('.modal-title').text("Edit Member Details");
                 $('#member_id').val(member_id);
                 $('#action').val("Save");
@@ -169,7 +176,7 @@ $(document).ready(function(){
     });
      
     $(document).on('click', '.delete', function(){
-        var member_id = $(this).attr("id");
+        var member_id = $(this).attr("kid");
         if(confirm("Are you sure you want to delete this user?"))
         {
             $.ajax({
