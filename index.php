@@ -9,21 +9,24 @@
 <body>
 <div class="container">
     <br />
-    <h3 align="center">PHP Mysql PDO CRUD Server Side Ajax DataTables</h3>   
+    <!-- <h3 align="center">PHP Mysql PDO CRUD Server Side Ajax DataTables</h3>    -->
     <br />
     <div align="right">
         <button type="button" id="add_button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal">
-          Add Member
+          Add
         </button>
     </div>
     <br />    
     <table id="member_table" class="table table-striped">  
         <thead bgcolor="#6cd8dc">
             <tr class="table-primary">
-                <th width="30%">ID</th>
-                <th width="50%">Name</th>  
+                <th width="30%">KID</th>
+                <th width="30%">Name</th>  
                 <th width="30%">Email</th>
-                <th width="30%">Phone</th>
+                <th width="30%">Password</th>
+                <th width="30%">Status</th>
+                <th width="30%">Technology</th>
+                <th width="30%">Time Available</th>
                 <th scope="col" width="5%">Edit</th>
                 <th scope="col" width="5%">Delete</th>
             </tr>
@@ -34,20 +37,43 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Add Member</h5>
+            <h5 class="modal-title">Add</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form method="post" id="member_form" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <label>Enter Name</label>
-                    <input type="text" name="name" id="name" class="form-control" />
+                    <label>Enter KIT ID</label>
+                    <input type="text" name="t_kid" id="name" class="form-control" />
                     <br />
-                    <label>Enter Email</label>
-                    <input type="email" name="email" id="email" class="form-control" />
+                    <label>Enter Name</label>
+                    <input type="text" name="t_name" id="email" class="form-control" />
                     <br /> 
-                    <label>Enter Phone</label>
-                    <input type="text" name="phone" id="phone" class="form-control" />
+                    <label>Enter Email</label>
+                    <input type="email" name="t_email" id="phone" class="form-control" />
+                    <br /> 
+                    <label>Enter Password</label>
+                    <input type="password" name="t_pass" id="phone" class="form-control" />
+                    <br /> 
+                    <label>Enter Status</label>
+                    <input type="text" name="t_status" id="phone" class="form-control" />
+                    <br /> 
+                    <label>Enter Technology</label>
+                    <input type="text" name="t_tech" id="phone" class="form-control" />
+                    <select class="form-multi-select" id="ms1" multiple data-coreui-search="true">
+                      <option value="0">Angular</option>
+                      <option value="1">Bootstrap</option>
+                      <option value="2">React.js</option>
+                      <option value="3">Vue.js</option>
+                      <optgroup label="backend">
+                        <option value="4">Django</option>
+                        <option value="5">Laravel</option>
+                        <option value="6">Node.js</option>
+                      </optgroup>
+                    </select>
+                    <br /> 
+                    <label>Enter Time Available</label>
+                    <input type="text" name="t_avail" id="phone" class="form-control" />
                     <br /> 
                 </div>
                 <div class="modal-footer">
@@ -164,6 +190,7 @@ $(document).ready(function(){
      
      
 });
+
 </script>             
 </body>
 </html>
