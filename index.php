@@ -66,10 +66,9 @@
                       <option value="1">Bootstrap</option>
                       <option value="2">React.js</option>
                       <option value="3">Vue.js</option>
-                      <optgroup label="backend">
-                        <option value="4">Django</option>
-                        <option value="5">Laravel</option>
-                        <option value="6">Node.js</option>
+                      <option value="4">Django</option>
+                      <option value="5">Laravel</option>
+                      <option value="6">Node.js</option>
                       </optgroup>
                     </select>
                     <br /> 
