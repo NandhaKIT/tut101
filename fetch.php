@@ -16,7 +16,7 @@ if(isset($_POST["order"]))
 }
 else
 {
-    $query .= 'ORDER BY t_id ASC ';
+    $query .= 'ORDER BY t_kid ASC ';
 }
  
 if($_POST["length"] != -1)
