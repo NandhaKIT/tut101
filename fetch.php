@@ -16,7 +16,7 @@ if(isset($_POST["order"]))
 }
 else
 {
-    $query .= 'ORDER BY id ASC ';
+    $query .= 'ORDER BY t_id ASC ';
 }
  
 if($_POST["length"] != -1)
@@ -32,6 +32,7 @@ foreach($result as $row)
 {
     $sub_array = array();
      
+    $sub_array[] = $row["t_id"];
     $sub_array[] = $row["t_kid"];
     $sub_array[] = $row["t_name"];
     $sub_array[] = $row["t_email"];
