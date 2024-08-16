@@ -45,7 +45,7 @@ foreach($result as $row)
     $sub_array[] = $row["t_avail"];
    
     $sub_array[] = '<button type="button" name="update" id="'.$row["t_id"].'" class="btn btn-primary btn-sm update">Edit</button></button>';
-    $sub_array[] = '<button type="button" name="delete" id="'.$row["t_id"].'" class="btn btn-danger btn-sm delete">Delete</button>';
+    $sub_array[] = '<button type="button" name="delete" id="'.$row["t_id"].' add_button" class="btn btn-danger btn-sm delete" data-bs-toggle="modal" data-bs-target="#userModal">Delete</button>';
     $data[] = $sub_array;
 }
 $output = array(

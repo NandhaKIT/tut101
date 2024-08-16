@@ -80,6 +80,52 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="userModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="post" id="member_form" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <label>Enter KIT ID</label>
+                    <input type="text" name="t_kid" id="t_kid" class="form-control" />
+                    <br />
+                    <label>Enter Name</label>
+                    <input type="text" name="t_name" id="t_name" class="form-control" />
+                    <br /> 
+                    <label>Enter Email</label>
+                    <input type="email" name="t_email" id="t_email" class="form-control" />
+                    <br /> 
+                    <label>Enter Password</label>
+                    <input type="password" name="t_pass" id="t_pass" class="form-control" />
+                    <br /> 
+                    <label>Enter Status</label>
+                    <select name="t_status" id="t_status" class="form-select">
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                    <br /> 
+                    <label>Enter Technology</label>
+                    <input type="text" name="t_tech" id="t_tech" class="form-control" />
+                    <br /> 
+                    <label>Enter Time Available</label>
+                    <input type="text" name="t_avail" id="t_avail" class="form-control" />
+                    <br /> 
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="member_id" id="member_id" />
+                    <input type="hidden" name="operation" id="operation" />
+                    <input type="submit" name="action" id="action" class="btn btn-primary" value="Add" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>  
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
