@@ -3,11 +3,11 @@ include('db.php');
 include('function.php');
 $query = '';
 $output = array();
-$query .= "SELECT * FROM trainees";
+$query .= "SELECT * FROM trainees ";
 if(isset($_POST["search"]["value"]))
 {
-    $query .= 'WHERE name LIKE "%'.$_POST["search"]["value"].'%" ';
-    $query .= 'OR email LIKE "%'.$_POST["search"]["value"].'%" ';
+    $query .= 'WHERE t_name LIKE "%'.$_POST["search"]["value"].'%" ';
+    $query .= 'OR t_email LIKE "%'.$_POST["search"]["value"].'%" ';
 } 
  
 if(isset($_POST["order"]))
@@ -16,13 +16,15 @@ if(isset($_POST["order"]))
 }
 else
 {
-    $query .= 'ORDER BY t_kid ASC ';
+    $query .= 'ORDER BY t_id ASC ';
 }
  
 if($_POST["length"] != -1)
 {
     $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 } 
+
+//echo $query;
 $statement = $connection->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
@@ -32,7 +34,8 @@ foreach($result as $row)
 {
     $sub_array = array();
      
-    $sub_array[] = $row["t_id"];
+ 
+    
     $sub_array[] = $row["t_kid"];
     $sub_array[] = $row["t_name"];
     $sub_array[] = $row["t_email"];
@@ -41,8 +44,8 @@ foreach($result as $row)
     $sub_array[] = $row["t_tech"];
     $sub_array[] = $row["t_avail"];
    
-    $sub_array[] = '<button type="button" name="update" t_id="'.$row["t_id"].'" class="btn btn-primary btn-sm update"><i class="glyphicon glyphicon-pencil"> </i>Edit</button></button>';
-    $sub_array[] = '<button type="button" name="delete" t_id="'.$row["t_id"].'" class="btn btn-danger btn-sm delete">Delete</button>';
+    $sub_array[] = '<button type="button" name="update" id="'.$row["t_id"].'" class="btn btn-primary btn-sm update">Edit</button></button>';
+    $sub_array[] = '<button type="button" name="delete" id="'.$row["t_id"].'" class="btn btn-danger btn-sm delete">Delete</button>';
     $data[] = $sub_array;
 }
 $output = array(

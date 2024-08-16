@@ -169,7 +169,7 @@ $(document).ready(function(){
     });
      
     $(document).on('click', '.delete', function(){
-        var member_id = $(this).attr("t_kid");
+        var member_id = $(this).attr("id");
         if(confirm("Are you sure you want to delete this user?"))
         {
             $.ajax({
